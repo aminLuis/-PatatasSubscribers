@@ -1,0 +1,37 @@
+<div class="login-container">
+    <mat-grid-list cols="2" rowHeight="2:2">
+
+        <mat-grid-tile>
+            <img src="../../assets/img/cultivo-patata.jpg" alt="">
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+
+           
+
+            <form [formGroup]="form_login" (ngSubmit)="login()">
+
+                <div class="img-log">
+                    <img src="../../assets/img/user.png" alt="">
+                </div>
+
+                <p>
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Usuario</mat-label>
+                        <input formControlName="UserName" matInput>
+                    </mat-form-field>
+                </p>
+
+                <p>
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input formControlName="Password" type="password" matInput>
+                    </mat-form-field>
+                </p>
+
+            </form>
+
+        </mat-grid-tile>
+
+    </mat-grid-list>
+</div>

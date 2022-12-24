@@ -14,6 +14,14 @@ import { MatListModule } from '@angular/material/list';
 import { ListSubscribersComponent } from './pages/list-subscribers/list-subscribers.component';
 import { CreatSusbcriberComponent } from './pages/creat-susbcriber/creat-susbcriber.component';
 import { BodyComponent } from './body/body.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FormSusbcriberComponent } from './pages/creat-susbcriber/form-susbcriber/form-susbcriber.component';
+import { MatInputModule } from '@angular/material/input';
+import { TableSusbcribersComponent } from './pages/creat-susbcriber/table-susbcribers/table-susbcribers.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,7 +29,10 @@ import { BodyComponent } from './body/body.component';
     NavigationComponent,
     ListSubscribersComponent,
     CreatSusbcriberComponent,
-    BodyComponent
+    BodyComponent,
+    FormSusbcriberComponent,
+    TableSusbcribersComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +43,12 @@ import { BodyComponent } from './body/body.component';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatDialogModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatGridListModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

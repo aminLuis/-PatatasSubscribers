@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { FormSusbcriberComponent } from './form-susbcriber/form-susbcriber.component';
 
 @Component({
   selector: 'app-creat-susbcriber',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreatSusbcriberComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
+  }
+
+  openDialog() {
+    this.dialog.open(FormSusbcriberComponent);
   }
 
 }

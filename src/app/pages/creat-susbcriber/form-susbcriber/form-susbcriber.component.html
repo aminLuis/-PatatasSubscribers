@@ -1,0 +1,45 @@
+<form class="example-form" [formGroup]="form_susbcriber" (ngSubmit)="save_susbcriber()">
+
+    <p>Información del suscriptor</p>
+
+    <p>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Nombre del suscriptor</mat-label>
+            <input formControlName="Name" matInput #name maxlength="256" placeholder="Ex. I need help with...">
+            <mat-hint align="start"><strong>Don't disclose personal info</strong> </mat-hint>
+            <mat-hint align="end">{{name.value.length}} / 256</mat-hint>
+          </mat-form-field>
+    </p>
+
+    <p>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input formControlName="Email" matInput #email maxlength="256" placeholder="Ex. I need help with...">
+            <mat-hint align="start"><strong>Don't disclose personal info</strong> </mat-hint>
+            <mat-hint align="end">{{email.value.length}} / 256</mat-hint>
+          </mat-form-field>
+    </p>
+
+    <p>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Teléfono</mat-label>
+            <input formControlName="PhoneNumber" matInput #telephone maxlength="256" placeholder="Ex. I need help with...">
+            <mat-hint align="start"><strong>Don't disclose personal info</strong> </mat-hint>
+            <mat-hint align="end">{{telephone.value.length}} / 256</mat-hint>
+          </mat-form-field>
+    </p>
+
+    <p>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Título profesional</mat-label>
+            <input formControlName="JobTitle" matInput #jobtitle maxlength="256" placeholder="Ex. I need help with...">
+            <mat-hint align="start"><strong>Don't disclose personal info</strong> </mat-hint>
+            <mat-hint align="end">{{jobtitle.value.length}} / 256</mat-hint>
+          </mat-form-field>
+    </p>
+
+    <p>
+        <button mat-raised-button class="btn-success form-btn" [disabled]="!form_susbcriber.valid">Guardar</button>
+    </p>
+
+  </form>
