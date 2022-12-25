@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { LoginServiceService } from '../services/login-service.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,10 @@ export class LoginComponent implements OnInit {
 
   form_login: FormGroup;
 
-  constructor(private deviceService: DeviceDetectorService, public form: FormBuilder) {
+  constructor(private deviceService: DeviceDetectorService, 
+    public form: FormBuilder,
+    private login_service:LoginServiceService
+    ) {
     this.form_login = form.group({
       UserName:['',Validators.required],
       Password:['',Validators.required]
@@ -24,6 +28,9 @@ export class LoginComponent implements OnInit {
 
   login(){
     console.log(this.form_login.value);
+    this.login_service.login_user(this.form_login.value).subscribe(res=>{
+      console.log(res);
+    });
   }
 
   epicFunction() {
