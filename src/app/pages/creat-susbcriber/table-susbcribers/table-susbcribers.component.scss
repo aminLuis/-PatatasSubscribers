@@ -5,7 +5,18 @@
 
 .table{
     width: 100%;
+    border-collapse: collapse;
 }
 th{
+    padding: 1%;
+}
+
+tr {
+    border: rgb(221, 219, 215) 1px solid;
+    border-collapse: collapse;
+    border-radius: 3px;
+}
+
+td{
     padding: 1%;
 }

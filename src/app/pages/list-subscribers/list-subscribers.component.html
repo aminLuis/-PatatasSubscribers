@@ -11,22 +11,18 @@
                     <th>Teléfono</th>
                     <th>Título profesional</th>
                     <th>Última actividad</th>
-                    <th>Fecha subscripción</th>
-                    <th>Estado de subscripción</th>
-                    <th>Estado de conexión</th>
+                    <th>Fecha suscripción</th>
                 </tr>
             </thead>
 
             <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                <tr *ngFor="let susbcriber of susbcribers">
+                    <td>{{susbcriber.Name}}</td>
+                    <td>{{susbcriber.Email}}</td>
+                    <td>{{susbcriber.PhoneNumber}}</td>
+                    <td>{{susbcriber.JobTitle}}</td>
+                    <td>{{susbcriber.LastActivity}}</td>
+                    <td>{{susbcriber.SubscriptionDate}}</td>
                 </tr>
             </tbody>
 

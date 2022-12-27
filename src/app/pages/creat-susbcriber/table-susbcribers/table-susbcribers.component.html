@@ -10,15 +10,23 @@
                         <th>Email</th>
                         <th>Teléfono</th>
                         <th>Título profesional</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
     
                 <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <tr *ngFor="let susbcriber of susbcribers">
+                        <td>{{susbcriber.Name}}</td>
+                        <td>{{susbcriber.Email}}</td>
+                        <td>{{susbcriber.PhoneNumber}}</td>
+                        <td>{{susbcriber.JobTitle}}</td>
+                        <td>
+                            <button mat-fab color="primary" aria-label="Example icon button with a delete icon"
+                            (click)="open_edit()"
+                            >
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                        </td>
                     </tr>
                 </tbody>
     

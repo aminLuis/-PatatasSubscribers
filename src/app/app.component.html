@@ -1,3 +1,9 @@
-<!-- <app-navigation></app-navigation> -->
+<div *ngIf="sesion">
+    <app-navigation></app-navigation>
+</div>
 
-<app-login></app-login>
+<div *ngIf="!sesion">
+    <app-login
+    (sesion)="get_sesion($event)"
+    ></app-login>
+</div>

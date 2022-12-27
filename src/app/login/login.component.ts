@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { LoginServiceService } from '../services/login-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,10 +12,13 @@ import { LoginServiceService } from '../services/login-service.service';
 export class LoginComponent implements OnInit {
 
   form_login: FormGroup;
+  @Output() sesion = new EventEmitter<boolean>();
+  sesion_estatus: any = "init";
 
   constructor(private deviceService: DeviceDetectorService, 
     public form: FormBuilder,
-    private login_service:LoginServiceService
+    private login_service:LoginServiceService,
+    private router:Router
     ) {
     this.form_login = form.group({
       UserName:['',Validators.required],
@@ -26,10 +30,16 @@ export class LoginComponent implements OnInit {
     this.epicFunction();
   }
 
+  send_sesion(){
+    this.sesion.emit(true);
+  }
+
   login(){
-    console.log(this.form_login.value);
     this.login_service.login_user(this.form_login.value).subscribe(res=>{
-      console.log(res);
+      if(res!=null){
+        localStorage.setItem('Token',res.Token);
+        this.send_sesion();
+      }
     });
   }
 
