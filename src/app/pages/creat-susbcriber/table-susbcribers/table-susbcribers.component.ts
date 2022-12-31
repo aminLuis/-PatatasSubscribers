@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { SusbcribersServiceService } from 'src/app/services/susbcribers-service.service';
 import { Susbcriber } from 'src/app/interfaces/susbcribers.interface';
 import { MatDialog } from '@angular/material/dialog';
@@ -12,6 +12,8 @@ import { EditComponent } from '../edit/edit.component';
 export class TableSusbcribersComponent implements OnInit {
 
   susbcribers: Susbcriber[] = [];
+  @Input() send_susbcriber!: Susbcriber;
+  subscription: any;
 
   constructor(private susbcribers_service:SusbcribersServiceService,
     public dialog: MatDialog
@@ -19,6 +21,9 @@ export class TableSusbcribersComponent implements OnInit {
 
   ngOnInit(): void {
     this.list_susbcribers();
+    this.subscription = this.susbcribers_service.reload.subscribe(()=>{
+      this.list_susbcribers();
+    });
   }
 
   list_susbcribers(){
@@ -29,7 +34,13 @@ export class TableSusbcribersComponent implements OnInit {
   }
 
   open_edit(){
-    this.dialog.open(EditComponent);
+    this.dialog.open(EditComponent,{
+      data: this.send_susbcriber
+    });
+  }
+
+  capture_susbcriber(susbcriber:Susbcriber){
+    this.send_susbcriber = susbcriber;
   }
 
 }

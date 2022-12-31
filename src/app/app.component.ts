@@ -7,16 +7,21 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class AppComponent implements OnInit{
 
-  sesion: any = "";
+  sesion: boolean = false;
 
   title = 'PatatasSubscribers';
 
   ngOnInit(): void {
-    console.log(localStorage.getItem('Token'))
+    if(localStorage.getItem('Token')!=null){
+      this.sesion = true;
+    }else{
+      this.sesion = false;
+    }
   }
 
   get_sesion(e:any){
     this.sesion = e;
+    window.location.reload();
   }
 
 }

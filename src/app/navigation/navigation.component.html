@@ -26,7 +26,7 @@
             <mat-icon matSuffix>expand_more</mat-icon>
           </button>
           <mat-menu #ayuda="matMenu">
-            <button mat-menu-item>Salir</button>
+            <button (click)="destroy_sesion()" mat-menu-item>Salir</button>
           </mat-menu>
         </span>
 

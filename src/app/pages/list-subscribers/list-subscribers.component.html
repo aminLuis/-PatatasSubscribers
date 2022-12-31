@@ -12,6 +12,7 @@
                     <th>Título profesional</th>
                     <th>Última actividad</th>
                     <th>Fecha suscripción</th>
+                    <th>Acción</th>
                 </tr>
             </thead>
 
@@ -23,11 +24,38 @@
                     <td>{{susbcriber.JobTitle}}</td>
                     <td>{{susbcriber.LastActivity}}</td>
                     <td>{{susbcriber.SubscriptionDate}}</td>
+                    <td>
+                        <button mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon"
+                        (click)="delete_susbcriber(susbcriber.Id)"
+                        >
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
                 </tr>
             </tbody>
 
         </table>
 
+    </div>
+
+    <div class="pages">
+        <button mat-mini-fab color="warn" aria-label="Example icon button with a filter list icon" (click)="previous()"
+            [disabled]="page1==1">
+            <mat-icon>arrow_back_ios</mat-icon>
+        </button>
+        <button class="btn-cont btn-current" mat-mini-fab aria-label="Example icon button with a home icon"
+            (click)="jump(page1)">
+            {{page1}}
+        </button>
+        <button class="btn-cont" mat-mini-fab aria-label="Example icon button with a home icon" (click)="jump(page2)">
+            {{page2}}
+        </button>
+        <button class="btn-cont" mat-mini-fab aria-label="Example icon button with a home icon" (click)="jump(page3)">
+            {{page3}}
+        </button>
+        <button mat-mini-fab color="warn" aria-label="Example icon button with a filter list icon" (click)="next()">
+            <mat-icon>arrow_forward_ios</mat-icon>
+        </button>
     </div>
 
 </div>
